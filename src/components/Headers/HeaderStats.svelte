@@ -1,6 +1,12 @@
 <script>
   // core components
   import CardStats from "components/Cards/CardStats.svelte";
+  export let recordsm
+  $: fetch(`http://192.168.0.25:3000/api/recordsm`)
+		.then(r => r.json())
+		.then(data => {
+			recordsm = data
+		});
 </script>
 
 <!-- Header -->
