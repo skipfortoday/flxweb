@@ -4,7 +4,7 @@
 		.then(r => r.json())
 		.then(data => {
 			restmdb = data
-    });
+		});
 </script>
 
 {#if restmdb}
@@ -46,12 +46,12 @@
           <th
             class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
           >
-            Jam Masuk
+            JamDatang
           </th>
           <th
             class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
           >
-            Jam Pulang
+            JamPulang
           </th>
         </tr>
       </thead>
@@ -142,28 +142,6 @@
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
             {restmdb[3].JamPulang}
-          </td>
-        </tr>
-        <tr>
-          <th
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left"
-          >
-            {restmdb[4].Tanggal}
-          </th>
-          <td
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-          >
-           {restmdb[4].Nama}
-          </td>
-          <td
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-          >
-            {restmdb[4].JamDatang}
-          </td>
-          <td
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-          >
-            {restmdb[4].JamPulang}
           </td>
         </tr>
       </tbody>
