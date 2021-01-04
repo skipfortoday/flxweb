@@ -1,13 +1,13 @@
 <script>
-  export let attlog
-  $: fetch(`http://192.168.0.25:3000/api/att_log`)
+  export let restmdb
+  $: fetch(`http://192.168.0.25:3000/api/restmdb`)
 		.then(r => r.json())
 		.then(data => {
-			attlog = data
-		});
+			restmdb = data
+    });
 </script>
 
-{#if attlog}
+{#if restmdb}
 <div
   class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded"
 >
@@ -36,7 +36,7 @@
           <th
             class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
           >
-            Nomor Induk
+            Tanggal
           </th>
           <th
             class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
@@ -46,12 +46,12 @@
           <th
             class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
           >
-            Jam Scan
+            Jam Masuk
           </th>
           <th
             class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
           >
-            Kantor
+            Jam Pulang
           </th>
         </tr>
       </thead>
@@ -60,110 +60,110 @@
           <th
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left"
           >
-            {attlog[0].pin}
+            {restmdb[0].Tanggal}
           </th>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-           {attlog[0].nama}
+           {restmdb[0].Nama}
           </td>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-            {attlog[0].scan_date}
+            {restmdb[0].JamDatang}
           </td>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-            {attlog[0].nama_cabang}
+            {restmdb[0].JamPulang}
           </td>
         </tr>
         <tr>
           <th
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left"
           >
-            {attlog[1].pin}
+            {restmdb[1].Tanggal}
           </th>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-           {attlog[1].nama}
+           {restmdb[1].Nama}
           </td>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-           {attlog[1].scan_date}
+           {restmdb[1].JamDatang}
           </td>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-            {attlog[1].nama_cabang}
+            {restmdb[1].JamPulang}
           </td>
         </tr>
         <tr>
           <th
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left"
           >
-          {attlog[2].pin}
+          {restmdb[2].Tanggal}
           </th>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-          {attlog[2].nama}
+          {restmdb[2].Nama}
           </td>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-          {attlog[2].scan_date}
+          {restmdb[2].JamDatang}
           </td>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-          {attlog[2].nama_cabang}
+          {restmdb[2].JamPulang}
           </td>
         </tr>
         <tr>
           <th
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left"
           >
-            {attlog[3].pin}
+            {restmdb[3].Tanggal}
           </th>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-           {attlog[3].nama}
+           {restmdb[3].Nama}
           </td>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-            {attlog[3].scan_date}
+            {restmdb[3].JamDatang}
           </td>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-            {attlog[3].nama_cabang}
+            {restmdb[3].JamPulang}
           </td>
         </tr>
         <tr>
           <th
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left"
           >
-            {attlog[4].pin}
+            {restmdb[4].Tanggal}
           </th>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-            {attlog[4].nama}
+           {restmdb[4].Nama}
           </td>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-            {attlog[4].scan_date}
+            {restmdb[4].JamDatang}
           </td>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-            {attlog[4].nama_cabang}
+            {restmdb[4].JamPulang}
           </td>
         </tr>
       </tbody>
