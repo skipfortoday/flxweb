@@ -1,10 +1,10 @@
 <script>
   export let dizin
-  $: fetch(`http://192.168.0.25:3000/api/izin`)
+  $: fetch(`http://192.168.0.25:3000/api/recentizin`)
 		.then(r => r.json())
 		.then(dataizin => {
 			dizin = dataizin
-		});
+		}); 
 </script>
 
 {#if dizin}
@@ -34,9 +34,9 @@
       <thead>
         <tr>
           <th
-            class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
+          class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
           >
-            Nama
+          No
           </th>
           <th
             class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
@@ -46,158 +46,93 @@
           <th
             class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
           >
-            Tanggal Selesai
+            Nama
           </th>
-          <th
-          class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
-        >
-          Kategori Izin
-        </th>
           <th
             class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
           >
-            Kantor
+            Kategori Izin
+          </th>
+          <th
+          class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
+          >
+            Keterangan
           </th>
         </tr>
       </thead>
       <tbody>
+        {#each dizin as dizin, i}
         <tr>
           <th
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left"
           >
-            {dizin[0].nama}
+           {[i+1]}
           </th>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-           {dizin[0].tgl_mulai}
+            {dizin.Tanggal}
           </td>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-            {dizin[0].tgl_selesai}
+              {dizin.Nama}
           </td>
           <td
           class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-        >
-           {dizin[0].kategori_izin}
-        </td>
+           >
+             {dizin.Sakit}
+          </td>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-            {dizin[0].nama_cabang}
+              {dizin.Keterangan}
           </td>
         </tr>
-        <tr>
-          <th
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left"
-          >
-            {dizin[1].nama}
-          </th>
-          <td
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-          >
-           {dizin[1].tgl_mulai}
-          </td>
-          <td
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-          >
-           {dizin[1].tgl_selesai}
-          </td>
-          <td
-          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-        >
-           {dizin[1].kategori_izin}
-        </td>
-          <td
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-          >
-            {dizin[1].nama_cabang}
-          </td>
-        </tr>
-        <tr>
-          <th
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left"
-          >
-          {dizin[2].nama}
-          </th>
-          <td
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-          >
-          {dizin[2].tgl_mulai}
-          </td>
-          <td
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-          >
-          {dizin[2].tgl_selesai}
-          </td>
-          <td
-          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-        >
-           {dizin[2].kategori_izin}
-        </td>
-          <td
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-          >
-          {dizin[2].nama_cabang}
-          </td>
-        </tr>
-        <tr>
-          <th
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left"
-          >
-            {dizin[3].nama}
-          </th>
-          <td
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-          >
-           {dizin[3].tgl_mulai}
-          </td>
-          <td
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-          >
-            {dizin[3].tgl_selesai}
-          </td>
-          <td
-          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-        >
-           {dizin[3].kategori_izin}
-        </td>
-          <td
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-          >
-            {dizin[3].nama_cabang}
-          </td>
-        </tr>
-        <tr>
-          <th
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left"
-          >
-            {dizin[4].nama}
-          </th>
-          <td
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-          >
-            {dizin[4].tgl_mulai}
-          </td>
-          <td
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-          >
-            {dizin[4].tgl_selesai}
-          </td>
-          <td
-          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-        >
-           {dizin[4].kategori_izin}
-        </td>
-          <td
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-          >
-            {dizin[4].nama_cabang}
-          </td>
-        </tr>
+        {/each}
       </tbody>
     </table>
+  </div>
+  <div class="py-2">
+    <nav class="block">
+      <ul class="flex pl-0 rounded list-none flex-wrap">
+        <li>
+          <a href="#pablo" class="first:ml-0 text-xs font-semibold flex w-8 h-8 mx-1 p-0 rounded-full items-center justify-center leading-tight relative border border-solid border-orange-500 bg-white text-orange-500">
+            <i class="fas fa-chevron-left -ml-px"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#pablo" class="first:ml-0 text-xs font-semibold flex w-8 h-8 mx-1 p-0 rounded-full items-center justify-center leading-tight relative border border-solid border-orange-500 text-white bg-orange-500">
+            1
+          </a>
+        </li>
+        <li>
+          <a href="#pablo" class="first:ml-0 text-xs font-semibold flex w-8 h-8 mx-1 p-0 rounded-full items-center justify-center leading-tight relative border border-solid border-orange-500 bg-white text-orange-500">
+            2
+          </a>
+        </li>
+        <li>
+          <a href="#pablo" class="first:ml-0 text-xs font-semibold flex w-8 h-8 mx-1 p-0 rounded-full items-center justify-center leading-tight relative border border-solid border-orange-500 bg-white text-orange-500">
+            3
+          </a>
+        </li>
+        <li>
+          <a href="#pablo" class="first:ml-0 text-xs font-semibold flex w-8 h-8 mx-1 p-0 rounded-full items-center justify-center leading-tight relative border border-solid border-orange-500 bg-white text-orange-500">
+            4
+          </a>
+        </li>
+        <li>
+          <a href="#pablo" class="first:ml-0 text-xs font-semibold flex w-8 h-8 mx-1 p-0 rounded-full items-center justify-center leading-tight relative border border-solid border-orange-500 bg-white text-orange-500">
+            5
+          </a>
+        </li>
+        <li>
+          <a href="#pablo" class="first:ml-0 text-xs font-semibold flex w-8 h-8 mx-1 p-0 rounded-full items-center justify-center leading-tight relative border border-solid border-orange-500 bg-white text-orange-500">
+            <i class="fas fa-chevron-right -mr-px"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </div>
 {/if}

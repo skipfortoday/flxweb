@@ -1,6 +1,6 @@
 <script>
   export let restmdb
-  $: fetch(`http://192.168.0.25:3000/api/restmdb`)
+  $: fetch(`http://192.168.0.25:3000/api/recentscan`)
 		.then(r => r.json())
 		.then(data => {
 			restmdb = data
