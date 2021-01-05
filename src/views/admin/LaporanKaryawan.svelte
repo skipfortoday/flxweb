@@ -1,7 +1,8 @@
 <script>
     import Report from "components/Cards/LaporanKaryawan.svelte";
+    export let location;
 </script>
   
-    <div class="w-full xl:w-10/14 mb-14 xl:mb-0 px-6">
-      <Report/>
-    </div>
+<div class="w-full xl:w-10/14 mb-14 xl:mb-0 px-6">
+     <Report/>
+</div>

@@ -9,7 +9,7 @@
 
   // pages for this layout
   import Dashboard from "views/admin/Dashboard.svelte";
-  import TambahMesin from "views/admin/TambahMesin.svelte";
+  import Pegawai from "views/admin/Pegawai.svelte";
   import Absensi from "views/admin/Absensi.svelte";
   import Izin from "views/admin/Izin.svelte";
   import LaporanKaryawan from "views/admin/LaporanKaryawan.svelte";
@@ -26,7 +26,7 @@
     <div class="px-4 md:px-10 mx-auto w-full -m-24">
       <Router url="admin">
         <Route path="dashboard" component="{Dashboard}" />
-        <Route path="tambahmesin" component="{TambahMesin}" />
+        <Route path="pegawai" component="{Pegawai}" />
         <Route path="absensi" component="{Absensi}" />
         <Route path="izin" component="{Izin}" />
         <Route path="laporankaryawan" component="{LaporanKaryawan}" />

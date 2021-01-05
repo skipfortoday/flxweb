@@ -13,19 +13,13 @@
   >
     <div class="rounded-t bg-white mb-0 px-6 py-6">
       <div class="text-center flex justify-between">
-        <h6 class="text-gray-800 text-xl font-bold">Laporan Absensi</h6>
-        <button
-          class="bg-red-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-          type="button"
-        >
-          +
-        </button>
+        <h6 class="text-gray-800 text-xl font-bold">List Scan Karyawan @Rizqi Pratama</h6>
       </div>
     </div>
     <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
       <form>
         <h6 class="text-gray-500 text-sm mt-3 mb-6 font-bold uppercase">
-          Cari Nama Pegawai Dan Tentukan Tanggal
+          Filter Sesuai Tanggal untuk Cetak Laporan
         </h6>
         <div class="flex flex-wrap">
           <div class="w-full lg:w-4/12 px-4">
@@ -85,7 +79,7 @@
       <div class="flex flex-wrap items-center">
         <div class="relative w-full px-4 max-w-full flex-grow flex-1">
           <h3 class="font-semibold text-base text-gray-800">
-            List Pegawai
+            
           </h3>
         </div>
         <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
@@ -129,14 +123,8 @@
             <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
              >
-             <a
-             use:link
-             href="/admin/izin"
-             class="text-xs uppercase py-3 font-bold block {location.href.indexOf('/admin/izin') !== -1 ? 'text-red-500 hover:text-red-600':'text-gray-800 hover:text-gray-600'}"
-             >
                <i class="fas fa-clipboard-list text-gray-400 mr-2 text-sm"></i>
                Daftar Izin
-            </a>
             </td>
           </tr>
           {/each}

@@ -5,7 +5,7 @@
           .then(user => {
               pegawai = user
           }); 
-     import { link } from "svelte-routing";
+    import { link } from "svelte-routing";
   </script>
   
   
@@ -15,12 +15,6 @@
     <div class="rounded-t bg-white mb-0 px-6 py-6">
       <div class="text-center flex justify-between">
         <h6 class="text-gray-800 text-xl font-bold">Laporan Absensi</h6>
-        <button
-          class="bg-red-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-          type="button"
-        >
-          +
-        </button>
       </div>
     </div>
     <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
@@ -71,9 +65,9 @@
               />
             </div>
           </div>
-          <button class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-            Lihat Laporan
-         </button>
+            <button class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+               Lihat Laporan
+           </button>
         </div>          
       </form>
     </div>  
@@ -130,10 +124,15 @@
             <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
              >
-              
+             <a
+             use:link
+             href="/admin/laporankaryawan"
+             class="{location.href.indexOf('/admin/laporankaryawan') !== -1 ? 'text-red-500 hover:text-red-600':'text-gray-800 hover:text-gray-600'}"
+             >
              <button class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
                 <i class="fas fa-book-open"></i> Laporan
               </button>
+              </a>
             </td>
           </tr>
         {/each}
