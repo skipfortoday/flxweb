@@ -13,18 +13,18 @@
   const team3 = "../assets/img/team-3-800x800.jpg";
   const team4 = "../assets/img/team-4-470x470.png";
 
-  export let pengajuanizin
-  $: fetch(`http://192.168.0.25:3000/api/izin`)
+  export let reqizin
+  $: fetch(`http://192.168.0.25:3000/api/reqizin`)
 		.then(r => r.json())
 		.then(data => {
-			pengajuanizin = data
+			fullizin = data
 		});
 
   // can be one of light or dark
   export let color = "light";
 </script>
 
-{#if pengajuanizin}
+{#if reqizin}
 <div
   class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded {color === 'light' ? 'bg-white' : 'bg-red-800 text-white'}"
 >
