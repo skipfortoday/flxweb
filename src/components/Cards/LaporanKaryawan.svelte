@@ -5,7 +5,6 @@
           .then(user => {
               pegawai = user
           }); 
-     import { link } from "svelte-routing";
   </script>
   
   
@@ -130,13 +129,17 @@
             <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
              >
-              
-             <button class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-                <i class="fas fa-book-open"></i> Laporan
-              </button>
+             <a
+             use:link
+             href="/admin/izin"
+             class="text-xs uppercase py-3 font-bold block {location.href.indexOf('/admin/izin') !== -1 ? 'text-red-500 hover:text-red-600':'text-gray-800 hover:text-gray-600'}"
+             >
+               <i class="fas fa-clipboard-list text-gray-400 mr-2 text-sm"></i>
+               Daftar Izin
+            </a>
             </td>
           </tr>
-        {/each}
+          {/each}
         </tbody>
       </table>
     </div>

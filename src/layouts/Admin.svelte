@@ -12,6 +12,7 @@
   import TambahMesin from "views/admin/TambahMesin.svelte";
   import Absensi from "views/admin/Absensi.svelte";
   import Izin from "views/admin/Izin.svelte";
+  import LaporanKaryawan from "views/admin/LaporanKaryawan.svelte";
 
   export let location;
   export let admin = "";
@@ -28,8 +29,9 @@
         <Route path="tambahmesin" component="{TambahMesin}" />
         <Route path="absensi" component="{Absensi}" />
         <Route path="izin" component="{Izin}" />
+        <Route path="laporankaryawan" component="{LaporanKaryawan}" />
       </Router>
-      <FooterAdmin />
+    <FooterAdmin />
     </div>
   </div>
 </div>
