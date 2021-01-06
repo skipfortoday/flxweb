@@ -8,9 +8,14 @@
 
     import { link } from "svelte-routing";
 
+    let prefix = '';
+    let first = '';
+    let i =0 ;
+
     function handleClick() {
-		alert(pegawailist)
+		alert(pegawai.Nama)
     	}
+
 
   </script>
   
@@ -122,7 +127,7 @@
           </tr>
         </thead>
         <tbody>
-          {#each pegawai as pegawailist, i}
+          {#each pegawai as pegawai, i}
           <tr>
             <th
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left"
@@ -132,7 +137,7 @@
             <td
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
             >
-                {pegawailist.Nama}
+                {pegawai.Nama}
             </td>
             <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
