@@ -1,11 +1,19 @@
 <script>
     export let pegawai
-    $: fetch(`http://192.168.0.25:3000/api/user`)
+    $: fetch(`http://192.168.1.17:3000/api/user`)
           .then(r => r.json())
           .then(user => {
               pegawai = user
           }); 
+
     import { link } from "svelte-routing";
+
+    function handleClick() {
+		alert(pilih)
+    	}
+
+    let pilih
+
   </script>
   
   
@@ -123,7 +131,7 @@
             >
              {[i+1]}
             </th>
-            <td
+            <td value={pilih}
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
             >
                 {pegawai.Nama}
@@ -136,7 +144,7 @@
              href="/admin/laporankaryawan"
              class="{location.href.indexOf('/admin/laporankaryawan') !== -1 ? 'text-red-500 hover:text-red-600':'text-gray-800 hover:text-gray-600'}"
              >
-             <button class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+             <button class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" on:click|once={handleClick}>
                 <i class="fas fa-book-open"></i> Laporan
               </button>
               </a>

@@ -2,6 +2,7 @@
   // core components
   import ReqIzin from "components/Cards/ReqIzin.svelte";
   import AccIzin from "components/Cards/AccIzin.svelte";
+  export let location;
 </script>
 
 <div class="flex flex-wrap mt-4">
