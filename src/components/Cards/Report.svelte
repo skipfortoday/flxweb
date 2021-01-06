@@ -9,10 +9,8 @@
     import { link } from "svelte-routing";
 
     function handleClick() {
-		alert(pilih)
+		alert(pegawailist)
     	}
-
-    let pilih
 
   </script>
   
@@ -124,17 +122,17 @@
           </tr>
         </thead>
         <tbody>
-          {#each pegawai as pegawai, i}
+          {#each pegawai as pegawailist, i}
           <tr>
             <th
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left"
             >
              {[i+1]}
             </th>
-            <td value={pilih}
+            <td
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
             >
-                {pegawai.Nama}
+                {pegawailist.Nama}
             </td>
             <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
