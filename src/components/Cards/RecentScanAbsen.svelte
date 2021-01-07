@@ -1,13 +1,13 @@
 <script>
-  export let restmdb
-  $: fetch(`http://192.168.1.17:3000/api/recentscan`)
+  export let recentscan
+  $: fetch(`http://192.168.1.25:3000/api/attlog`)
 		.then(r => r.json())
 		.then(data => {
-			restmdb = data
+			recentscan = data
 		});
 </script>
 
-{#if restmdb}
+{#if recentscan}
 <div
   class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded"
 >
@@ -73,20 +73,10 @@
           >
           Shift
           </th>
-          <th
-          class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
-            >
-          Keterangan
-         </th>
-          <th
-          class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
-           >
-            Keterangan Pulang
-          </th>
         </tr>
       </thead>
       <tbody>
-        {#each restmdb as restm, i}
+        {#each recentscan as rscan, i}
         <tr>
           <th
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left"
@@ -96,47 +86,35 @@
           <th
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left"
           >
-            {restm.Tanggal}
+            {rscan.TanggalScan}
           </th>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-           {restm.Nama}
+           {rscan.Nama}
           </td>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-            {restm.JamDatang}
+            {rscan.ScanMasuk}
           </td>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-            {restm.JamPulang}
+            {rscan.ScanPulang}
+          </td>
+          <td
+            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
+          > 
+          </td>
+          <td
+            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
+          > 
           </td>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-            {restm.TotalTerlambat}
-          </td>
-          <td
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-          >
-            {restm.TotalLembur}
-          </td>
-          <td
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-          >
-            {restm.Shift}
-          </td>
-          <td
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-          >
-            {restm.Keterangan}
-          </td>
-          <td
-            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
-          >
-            {restm.KeteranganPulang}
+            {rscan.Shift}
           </td>
         </tr>
         {/each}

@@ -1,6 +1,6 @@
 <script>
   export let pegawai
-  $: fetch(`http://192.168.1.17:3000/api/user`)
+  $: fetch(`http://192.168.0.25:3000/api/user`)
 		.then(r => r.json())
 		.then(user => {
 			pegawai = user
@@ -50,7 +50,7 @@
               class="block uppercase text-gray-700 text-xs font-bold mb-2"
               for="grid-email"
             >
-              Username
+              UserID
             </label>
             <input
               id="grid-email"
@@ -109,7 +109,12 @@
           <th
           class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
           >
-          No
+             No
+          </th>
+          <th
+            class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
+          >
+            UserID
           </th>
           <th
             class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
@@ -119,6 +124,17 @@
           <th
             class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
           >
+            Jabatan
+          </th>
+          <th
+            class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
+          >
+            Cabang
+          </th>
+          <th
+          class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
+           >
+            Tanggal Masuk Kerja
           </th>
         </tr>
       </thead>
@@ -133,11 +149,27 @@
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-              {pegawai.Nama}
+            {pegawai.UserID}
           </td>
           <td
           class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
            >
+           {pegawai.Nama}
+          </td>
+          <td
+          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
+           >
+           {pegawai.NamaRole}
+          </td>
+          <td
+          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
+           >
+           {pegawai.NamaCabang}
+          </td>
+          <td
+          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
+           >
+           {pegawai.TglMasuk}
           </td>
         </tr>
         {/each}
