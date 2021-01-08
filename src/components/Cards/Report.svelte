@@ -1,6 +1,6 @@
 <script>
     export let pegawai
-    $: fetch(`http://192.168.0.25:3000/api/user`)
+    $: fetch(`http://192.168.1.4:3000/api/user`)
           .then(r => r.json())
           .then(user => {
               pegawai = user
@@ -116,9 +116,19 @@
             No
             </th>
             <th
+            class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
+             >
+              User ID
+            </th>
+            <th
               class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
             >
               Nama
+            </th>
+            <th
+            class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
+            >
+          
             </th>
             <th
               class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
@@ -129,11 +139,16 @@
         <tbody>
           {#each pegawai as pegawai, i}
           <tr>
-            <th
+            <td
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left"
             >
              {[i+1]}
-            </th>
+            </td>
+            <td
+            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
+            >
+              {pegawai.UserID}
+             </td>
             <td
               class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
             >

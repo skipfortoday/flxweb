@@ -116,7 +116,7 @@
             class="text-xs uppercase py-3 font-bold block {location.href.indexOf('/admin/pegawai') !== -1 ? 'text-red-500 hover:text-red-600':'text-gray-800 hover:text-gray-600'}"
           >
             <i
-              class="fas fa-tools mr-2 text-sm {location.href.indexOf('/admin/pegawai') !== -1 ? 'opacity-75' : 'text-gray-400'}"
+              class="fas fa-users mr-2 text-sm {location.href.indexOf('/admin/pegawai') !== -1 ? 'opacity-75' : 'text-gray-400'}"
             ></i>
             Pegawai
         </a>

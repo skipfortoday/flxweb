@@ -1,6 +1,6 @@
 <script>
   export let recentscan
-  $: fetch(`http://192.168.0.25:3000/api/attlog`)
+  $: fetch(`http://192.168.1.4:3000/api/attlog`)
 		.then(r => r.json())
 		.then(data => {
 			recentscan = data

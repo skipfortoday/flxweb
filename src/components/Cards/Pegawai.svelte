@@ -1,6 +1,6 @@
 <script>
   export let pegawai
-  $: fetch(`http://192.168.0.25:3000/api/user`)
+  $: fetch(`http://192.168.1.4:3000/api/user`)
 		.then(r => r.json())
 		.then(user => {
 			pegawai = user
@@ -16,12 +16,7 @@
   <div class="rounded-t bg-white mb-0 px-6 py-6">
     <div class="text-center flex justify-between">
       <h6 class="text-gray-800 text-xl font-bold">Tambah Akun</h6>
-      <button
-        class="bg-red-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-        type="button"
-      >
-        +
-      </button>
+  
     </div>
   </div>
   <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
@@ -30,7 +25,7 @@
         Pilih Nama Karyawan, Masukkan Username & Password
       </h6>
       <div class="flex flex-wrap">
-        <div class="w-full lg:w-4/12 px-4">
+        <div class="w-full lg:w-3/12 px-4">
           <div class="relative w-full mb-3">
             <label
               class="block uppercase text-gray-700 text-xs font-bold mb-2"
@@ -46,7 +41,7 @@
             />
           </div>
         </div>
-        <div class="w-full lg:w-4/12 px-4">
+        <div class="w-full lg:w-3/12 px-4">
           <div class="relative w-full mb-3">
             <label
               class="block uppercase text-gray-700 text-xs font-bold mb-2"
@@ -62,7 +57,7 @@
             />
           </div>
         </div>
-        <div class="w-full lg:w-4/12 px-4">
+        <div class="w-full lg:w-3/12 px-4">
           <div class="relative w-full mb-3">
             <label
               class="block uppercase text-gray-700 text-xs font-bold mb-2"
@@ -74,10 +69,23 @@
               id="grid-email"
               type="email"
               class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
-              placeholder="rizqipratamar"
+              placeholder="123"
             />
           </div>
+        </div><div class="w-full lg:w-3/12 px-4">
+          <div class="relative w-full mb-3">
+            <label
+              class="block uppercase text-gray-700 text-xs font-bold mb-2"
+              for="grid-email"
+            >
+              Tambah Akun
+            </label>
+            <button class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+              <i class="fas fa-user-plus"></i> ADD
+            </button>
+          </div>
         </div>
+
       </div>
     </form>
   </div>  
@@ -94,12 +102,6 @@
         </h3>
       </div>
       <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-        <button
-          class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-          type="button"
-        >
-          See all
-        </button>
       </div>
     </div>
   </div>
@@ -136,7 +138,12 @@
           <th
           class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
            >
-            Tanggal Masuk Kerja
+            Kerja Mulai
+          </th>
+          <th
+          class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
+           >
+            
           </th>
         </tr>
       </thead>
@@ -172,6 +179,16 @@
           class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
            >
              {pegawai.Hari} / {pegawai.Bulan} / {pegawai.Tahun}     
+          </td>
+          <td
+          class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
+           >
+           <button class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+            <i class="fas fa-user-edit"></i> Edit
+          </button>
+          <button class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+            <i class="fas fa-user-minus"></i> Delete
+          </button>
           </td>
         </tr>
         {/each}

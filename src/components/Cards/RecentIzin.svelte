@@ -1,6 +1,6 @@
 <script>
   export let dizin
-  $: fetch(`http://192.168.1.17:3000/api/recentizin`)
+  $: fetch(`http://192.168.1.4:3000/api/recentizin`)
 		.then(r => r.json())
 		.then(dataizin => {
 			dizin = dataizin
