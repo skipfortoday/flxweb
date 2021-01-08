@@ -139,7 +139,7 @@
         </tr>
       </thead>
       <tbody>
-        {#each pegawai as {UserID, Nama, NamaRole, NamaCabang, TglMasuk}, i}
+        {#each pegawai as pegawai, i}
         <tr>
           <th
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left"
@@ -149,27 +149,27 @@
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           >
-            {UserID}
+            {pegawai.UserID}
           </td>
           <td
           class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
            >
-           {Nama}
+           {pegawai.Nama}
           </td>
           <td
           class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
            >
-           {NamaRole}
+           {pegawai.NamaRole}
           </td>
           <td
           class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
            >
-           {NamaCabang}
+           {pegawai.NamaCabang}
           </td>
           <td
           class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
            >
-           {TglMasuk}
+           {pegawai.TglMasuk}
           </td>
         </tr>
         {/each}
