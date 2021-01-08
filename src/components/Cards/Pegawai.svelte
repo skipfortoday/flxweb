@@ -4,7 +4,9 @@
 		.then(r => r.json())
 		.then(user => {
 			pegawai = user
-		}); 
+    }); 
+    
+
 </script>
 
 
@@ -169,7 +171,7 @@
           <td
           class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
            >
-           {pegawai.TglMasuk}
+             {pegawai.Hari} / {pegawai.Bulan} / {pegawai.Tahun}     
           </td>
         </tr>
         {/each}

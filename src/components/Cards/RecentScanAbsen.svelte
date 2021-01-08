@@ -86,7 +86,7 @@
           <th
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left"
           >
-            {rscan.TanggalScan}
+            {rscan.Hari} / {rscan.Bulan} / {rscan.Tahun}
           </th>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
@@ -106,10 +106,12 @@
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           > 
+           {rscan.Terlambat}
           </td>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
           > 
+           {rscan.Lembur}
           </td>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
