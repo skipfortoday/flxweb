@@ -5,7 +5,39 @@
 		.then(user => {
 			pegawai = user
     }); 
-    
+
+
+  let UserID = '';
+  let Nama = '';
+  let Pass = '';
+  let TglMasuk = '';
+  let RoleUser = '';
+  let IdGroups = '';
+  let KodeCabang = '';
+	let i = 0;
+
+    async function doPost () {
+		const res = await fetch('http://192.168.1.8:3000/api/user', {
+			method: 'POST',
+			body: JSON.stringify({
+				UserID,
+        Nama,
+        Pass,
+        TglMasuk,
+        RoleUser,
+        IdGroups,
+        KodeCabang
+			})
+		})
+		
+		const json = await res.json()
+		result = JSON.stringify(json)
+	}
+
+
+
+
+
 
 </script>
 
@@ -15,14 +47,14 @@
 >
   <div class="rounded-t bg-white mb-0 px-6 py-6">
     <div class="text-center flex justify-between">
-      <h6 class="text-gray-800 text-xl font-bold">Tambah Akun</h6>
+      <h6 class="text-gray-800 text-xl font-bold">Daftarkan Pegawai</h6>
   
     </div>
   </div>
   <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
     <form>
-      <h6 class="text-gray-500 text-sm mt-3 mb-6 font-bold uppercase">
-        Pilih Nama Karyawan, Masukkan Username & Password
+      <h6 class="text-gray-500 text-sm mt-3 mb-6 font-bold">
+        Isikan Data Karyawan 
       </h6>
       <div class="flex flex-wrap">
         <div class="w-full lg:w-3/12 px-4">
@@ -53,7 +85,7 @@
               id="grid-email"
               type="email"
               class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
-              placeholder="rizqipratamar"
+              placeholder="SB1ACC001"
             />
           </div>
         </div>
@@ -72,16 +104,81 @@
               placeholder="123"
             />
           </div>
-        </div><div class="w-full lg:w-3/12 px-4">
+        </div>
+        <div class="w-full lg:w-3/12 px-4">
           <div class="relative w-full mb-3">
             <label
               class="block uppercase text-gray-700 text-xs font-bold mb-2"
               for="grid-email"
             >
-              Tambah Akun
+              Tanggal Masuk
+            </label>
+            <input
+              id="grid-email"
+              type="email"
+              class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
+              placeholder="SB1ACC001"
+            />
+          </div>
+        </div>
+        <div class="w-full lg:w-3/12 px-4">
+          <div class="relative w-full mb-3">
+            <label
+              class="block uppercase text-gray-700 text-xs font-bold mb-2"
+              for="grid-email"
+            >
+              Role
+            </label>
+            <input
+              id="grid-email"
+              type="email"
+              class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
+              placeholder="1 - Directur , 2 - Manager , 3 - SPV, 4 - Staff"
+            />
+          </div>
+        </div>
+        <div class="w-full lg:w-3/12 px-4">
+          <div class="relative w-full mb-3">
+            <label
+              class="block uppercase text-gray-700 text-xs font-bold mb-2"
+              for="grid-email"
+            >
+              IdGroups
+            </label>
+            <input
+              id="grid-email"
+              type="email"
+              class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
+              placeholder="DIR -- ADM"
+            />
+          </div>
+        </div>
+        <div class="w-full lg:w-3/12 px-4">
+          <div class="relative w-full mb-3">
+            <label
+              class="block uppercase text-gray-700 text-xs font-bold mb-2"
+              for="grid-email"
+            >
+              KodeCabang
+            </label>
+            <input
+              id="grid-email"
+              type="email"
+              class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
+              placeholder="SB1 -- SB2 -- JK1"
+            />
+          </div>
+        </div>
+        <div class="w-full lg:w-3/12 px-4">
+          <div class="relative w-full mb-3">
+            <label
+              class="block uppercase text-gray-700 text-xs font-bold mb-2"
+              for="grid-email"
+            >
+              ----------------------------------------------
             </label>
             <button class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-              <i class="fas fa-user-plus"></i> ADD
+              <i class="fas fa-user-plus"></i> Daftarkan Pegawai
             </button>
           </div>
         </div>
@@ -103,7 +200,7 @@
       </div>
       <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
         <div class="relative flex w-full flex-wrap items-stretch mb-3">
-          <input type="text" placeholder="Cari Nama Pegawai" class="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:shadow-outline w-full pr-10"/>
+          <input type="text" placeholder="Search" class="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:shadow-outline w-full pr-10"/>
           <span class="z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-3 py-3">
             <i class="fas fa-user"></i>
           </span>
