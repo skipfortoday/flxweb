@@ -1,10 +1,10 @@
 <script>
   export let recentscan
-  $: fetch(`http://192.168.1.16:3000/api/attlog`)
+  $: fetch(`http://192.168.1.16:3000/api/attlog/SB1MIT005`)
 		.then(r => r.json())
 		.then(data => {
 			recentscan = data
-		});
+    });
 </script>
 
 {#if recentscan}
@@ -15,15 +15,12 @@
     <div class="flex flex-wrap items-center">
       <div class="relative w-full px-4 max-w-full flex-grow flex-1">
         <h3 class="font-semibold text-base text-gray-800">
-          Recent Scan Absen
+          Laporan Scan Absensi Karyawan @Rizqi Pratama
         </h3>
       </div>
       <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-        <button
-          class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-          type="button"
-        >
-          See all
+        <button class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+          <i class="fas fa-print"></i> Print
         </button>
       </div>
     </div>
@@ -86,7 +83,7 @@
           <th
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left"
           >
-            {rscan.Hari} / {rscan.Bulan} / {rscan.Tahun}
+              {rscan.NamaHari} {rscan.Hari} / {rscan.Bulan} / {rscan.Tahun}
           </th>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4"
