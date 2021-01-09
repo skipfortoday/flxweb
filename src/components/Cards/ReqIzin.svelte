@@ -14,7 +14,7 @@
   const team4 = "../assets/img/team-4-470x470.png";
 
   export let reqizin
-  $: fetch(`http://192.168.1.4:3000/api/reqizin`)
+  $: fetch(`http://192.168.1.8:3000/api/reqizin`)
 		.then(r => r.json())
 		.then(data => {
 			fullizin = data

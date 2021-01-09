@@ -1,6 +1,6 @@
 <script>
   export let pegawai
-  $: fetch(`http://192.168.1.4:3000/api/user`)
+  $: fetch(`http://192.168.1.8:3000/api/user`)
 		.then(r => r.json())
 		.then(user => {
 			pegawai = user
@@ -102,6 +102,12 @@
         </h3>
       </div>
       <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
+        <div class="relative flex w-full flex-wrap items-stretch mb-3">
+          <input type="text" placeholder="Cari Nama Pegawai" class="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:shadow-outline w-full pr-10"/>
+          <span class="z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-3 py-3">
+            <i class="fas fa-user"></i>
+          </span>
+        </div>
       </div>
     </div>
   </div>
