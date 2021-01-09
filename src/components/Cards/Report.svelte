@@ -1,6 +1,6 @@
 <script>
     export let pegawai
-    $: fetch(`http://192.168.1.8:3000/api/user`)
+    $: fetch(`http://192.168.1.16:3000/api/user`)
           .then(r => r.json())
           .then(user => {
               pegawai = user
@@ -57,7 +57,7 @@
                 </span>
               <input
                 id="grid-email"
-                type="email"
+                type="date"
                 class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
                 placeholder="Tanggal Mulai"
               />
@@ -70,7 +70,7 @@
             </span>
               <input
                 id="grid-email"
-                type="email"
+                type="date"
                 class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
                 placeholder="Tanggal Akhir"
               />

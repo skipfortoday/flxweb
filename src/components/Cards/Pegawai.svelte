@@ -1,6 +1,6 @@
 <script>
   export let pegawai
-  $: fetch(`http://192.168.1.8:3000/api/user`)
+  $: fetch(`http://192.168.1.16:3000/api/user`)
 		.then(r => r.json())
 		.then(user => {
 			pegawai = user
@@ -17,28 +17,15 @@
 	let i = 0;
 
     async function doPost () {
-		const res = await fetch('http://192.168.1.8:3000/api/user', {
+		const res = await fetch('http://192.168.1.16:3000/api/user', {
 			method: 'POST',
-			body: JSON.stringify({
-				UserID,
-        Nama,
-        Pass,
-        TglMasuk,
-        RoleUser,
-        IdGroups,
-        KodeCabang
+			body: JSON.stringify({UserID,Nama,Pass,RoleUser,IdGroups,KodeCabang
 			})
 		})
 		
 		const json = await res.json()
 		result = JSON.stringify(json)
 	}
-
-
-
-
-
-
 </script>
 
 
@@ -61,12 +48,28 @@
           <div class="relative w-full mb-3">
             <label
               class="block uppercase text-gray-700 text-xs font-bold mb-2"
+              for="grid-email"
+            >
+              UserID
+            </label>
+            <input
+              bind:value={UserID}
+              type="email"
+              class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
+              placeholder="SB1ACC001"
+            />
+          </div>
+        </div>
+        <div class="w-full lg:w-3/12 px-4">
+          <div class="relative w-full mb-3">
+            <label
+              class="block uppercase text-gray-700 text-xs font-bold mb-2"
               for="grid-username"
             >
               Nama Karyawan
             </label>
             <input
-              id="grid-username"
+              bind:value={Nama}
               type="text"
               class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
               placeholder="Rizqi Pratama"
@@ -79,27 +82,11 @@
               class="block uppercase text-gray-700 text-xs font-bold mb-2"
               for="grid-email"
             >
-              UserID
-            </label>
-            <input
-              id="grid-email"
-              type="email"
-              class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
-              placeholder="SB1ACC001"
-            />
-          </div>
-        </div>
-        <div class="w-full lg:w-3/12 px-4">
-          <div class="relative w-full mb-3">
-            <label
-              class="block uppercase text-gray-700 text-xs font-bold mb-2"
-              for="grid-email"
-            >
               Password
             </label>
             <input
-              id="grid-email"
-              type="email"
+              bind:value={Pass}
+              type="password"
               class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
               placeholder="123"
             />
@@ -114,8 +101,8 @@
               Tanggal Masuk
             </label>
             <input
-              id="grid-email"
-              type="email"
+               bind:value={TglMasuk}
+              type="date"
               class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
               placeholder="SB1ACC001"
             />
@@ -130,7 +117,7 @@
               Role
             </label>
             <input
-              id="grid-email"
+               bind:value={RoleUser}
               type="email"
               class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
               placeholder="1 - Directur , 2 - Manager , 3 - SPV, 4 - Staff"
@@ -146,7 +133,7 @@
               IdGroups
             </label>
             <input
-              id="grid-email"
+               bind:value={IdGroups}
               type="email"
               class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
               placeholder="DIR -- ADM"
@@ -162,7 +149,7 @@
               KodeCabang
             </label>
             <input
-              id="grid-email"
+              bind:value={KodeCabang}
               type="email"
               class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
               placeholder="SB1 -- SB2 -- JK1"
@@ -175,9 +162,11 @@
               class="block uppercase text-gray-700 text-xs font-bold mb-2"
               for="grid-email"
             >
-              ----------------------------------------------
+            <span class="text-xs font-semibold inline-block py-1 px-6 uppercase rounded text-orange-600 bg-orange-500 uppercase last:mr-0 mr-1">
+              
+            </span>            
             </label>
-            <button class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+            <button class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" on:click={doPost}>
               <i class="fas fa-user-plus"></i> Daftarkan Pegawai
             </button>
           </div>
