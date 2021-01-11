@@ -1,6 +1,6 @@
 <script>
   export let dcabang
-  $: fetch(`http://192.168.1.8:3000/api/cabang`)
+  $: fetch(`http://192.168.1.100:3000/api/cabang`)
 		.then(r => r.json())
 		.then(cabang => {
 			dcabang = cabang

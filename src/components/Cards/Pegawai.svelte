@@ -1,11 +1,12 @@
 <script>
   export let pegawai
-  $: fetch(`http://192.168.1.16:3000/api/user`)
+  $: fetch(`http://192.168.1.100:3000/api/user`)
 		.then(r => r.json())
 		.then(user => {
 			pegawai = user
     }); 
 
+    import print from 'print-js'
 
   let UserID = '';
   let Nama = '';
@@ -25,7 +26,9 @@
 		
 		const json = await res.json()
 		result = JSON.stringify(json)
-	}
+  }
+  
+  
 </script>
 
 
@@ -39,7 +42,7 @@
     </div>
   </div>
   <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
-    <form>
+    <form id="printJS-form">
       <h6 class="text-gray-500 text-sm mt-3 mb-6 font-bold">
         Isikan Data Karyawan 
       </h6>
@@ -166,7 +169,7 @@
               
             </span>            
             </label>
-            <button class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" on:click={doPost}>
+            <button class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onclick="printJS('printJS-form', 'html')">
               <i class="fas fa-user-plus"></i> Daftarkan Pegawai
             </button>
           </div>
