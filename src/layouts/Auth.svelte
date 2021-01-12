@@ -1,10 +1,6 @@
 <script>
   import { Router, Route } from "svelte-routing";
 
-  // components for this layout
-  import AuthNavbar from "components/Navbars/AuthNavbar.svelte";
-  import FooterSmall from "components/Footers/FooterSmall.svelte";
-
   // pages for this layout
   import Login from "views/auth/Login.svelte";
   import Register from "views/auth/Register.svelte";
@@ -15,7 +11,6 @@
 </script>
 
 <div>
-  <AuthNavbar />
   <main>
     <section class="relative w-full h-full py-40 min-h-screen">
       <div
@@ -26,7 +21,6 @@
         <Route path="login" component="{Login}" />
         <Route path="register" component="{Register}" />
       </Router>
-      <FooterSmall absolute="true" />
     </section>
   </main>
 </div>
