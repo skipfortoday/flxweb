@@ -6,8 +6,25 @@
 			pegawai = user
     }); 
 
-    import print from 'print-js'
+    async function doPost () {
+		const res = await fetch(`http://192.168.1.100:3000/api/user`, {
+			method: 'POST',
+			body: JSON.stringify({
+				UserID,
+        Nama,
+        Pass,
+        TglMasuk,
+        RoleUser,
+        IdGroups,
+        KodeCabang
+			})
+		})
+		
+		const json = await res.json()
+		result = JSON.stringify(json)
+	}
 
+  
   let UserID = '';
   let Nama = '';
   let Pass = '';
@@ -16,17 +33,6 @@
   let IdGroups = '';
   let KodeCabang = '';
 	let i = 0;
-
-    async function doPost () {
-		const res = await fetch('http://192.168.1.16:3000/api/user', {
-			method: 'POST',
-			body: JSON.stringify({UserID,Nama,Pass,RoleUser,IdGroups,KodeCabang
-			})
-		})
-		
-		const json = await res.json()
-		result = JSON.stringify(json)
-  }
   
   
 </script>
@@ -121,7 +127,7 @@
             </label>
             <input
                bind:value={RoleUser}
-              type="email"
+              type="drop-down"
               class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
               placeholder="1 - Directur , 2 - Manager , 3 - SPV, 4 - Staff"
             />
@@ -169,7 +175,7 @@
               
             </span>            
             </label>
-            <button class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onclick="printJS('printJS-form', 'html')">
+            <button class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" onclick={doPost}>
               <i class="fas fa-user-plus"></i> Daftarkan Pegawai
             </button>
           </div>
